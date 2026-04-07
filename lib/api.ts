@@ -1,4 +1,4 @@
-import { TResponseIngredients, TResponseMealByIngredient } from "./type";
+import { TResponseIngredients, TResponseMealByIngredient, TResponseMealDetail } from "./type";
 
 const LINK_API = "https://www.themealdb.com/api/json/v1/1";
 
@@ -24,7 +24,7 @@ export async function getMealsByIngredients(
   return res.json();
 }
 
-export async function geDetailMealById(params: string) {
+export async function getDetailMealById(params: string): Promise<TResponseMealDetail> {
   const res = await fetch(`${LINK_API}/lookup.php?i=${params}`, {
     cache: "no-store",
   });
