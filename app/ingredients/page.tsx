@@ -1,5 +1,6 @@
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Ingredients() {
   const ingredients = [
@@ -211,6 +212,10 @@ export default function Ingredients() {
                     variant="outline"
                     size="sm"
                     className="border-slate-300 text-slate-900 hover:bg-slate-100"
+                    render={
+                      <Link href={`/foods?ingredient=${ingredient.name}`} />
+                    }
+                    nativeButton={false}
                   >
                     View Recipes
                   </Button>

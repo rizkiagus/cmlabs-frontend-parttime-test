@@ -50,6 +50,8 @@ export default function SectionIngredients() {
               variant="outline"
               size="sm"
               className="h-12 rounded-full border-slate-200 bg-slate-50 text-sm font-medium text-slate-700 hover:border-amber-300 hover:bg-amber-50 transition"
+              render={<Link href={`/foods?ingredient=${data.strIngredient}`} />}
+              nativeButton={false}
             >
               {data.strIngredient}
             </Button>
