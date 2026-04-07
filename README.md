@@ -16,4 +16,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deployment
 
-Open [https://cmlabs-frontend-parttime-test-one.vercel.app/](Deploy Link Vercel) with your browser to see the result
+Open [Deploy Link Vercel](https://cmlabs-frontend-parttime-test-one.vercel.app/) with your browser to see the result
