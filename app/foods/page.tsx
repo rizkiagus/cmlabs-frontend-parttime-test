@@ -100,7 +100,7 @@ export default function FoodsPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="grid grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-4">
               {foods.map((food) => (
                 <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
                   <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg h-64 group cursor-pointer">

@@ -38,7 +38,7 @@ export default function SectionFoods() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-4">
         {foods?.slice(0, 8).map((food) => (
           <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
             <div
