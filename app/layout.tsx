@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Loading from "@/components/ui/loading";
 
 const poppins = Poppins({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main className="flex-1">
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </main>
+        <Footer />
       </body>
     </html>
   );
