@@ -10,6 +10,7 @@ import SectionSearchAndFilter from "./components/SectionSearchAndFilter";
 import Loading from "@/components/ui/loading";
 import SectionNoResult from "./components/SectionNoResultFound";
 import SectionNoSelectionIngredient from "./components/SectionNoSelectionIngredient";
+import BreadcrumbNav from "@/components/BreadcrumbNav";
 
 export default function FoodsPage() {
   const searchParams = useSearchParams();
@@ -73,70 +74,79 @@ export default function FoodsPage() {
 
   return (
     <div className="w-full bg-white min-h-screen p-4 md:p-8">
-      <div className="max-w-7xl mx-auto">
-        <SectionHeader />
-        <SectionSearchAndFilter
-          onClickIngredient={(value) => handleIngredientFilter(value)}
-          ingredientList={filteredIngredients}
-          onClearFilter={() => {
-            setSelectedIngredient("");
-            setFoods([]);
-          }}
-          value={searchTerm}
-          onChangeInput={(e) => setSearchTerm(e)}
-          selectedIngredient={selectedIngredient}
-        />
+      <BreadcrumbNav />
+      <SectionHeader />
+      <SectionSearchAndFilter
+        onClickIngredient={(value) => handleIngredientFilter(value)}
+        ingredientList={filteredIngredients}
+        onClearFilter={() => {
+          setSelectedIngredient("");
+          setFoods([]);
+        }}
+        value={searchTerm}
+        onChangeInput={(e) => setSearchTerm(e)}
+        selectedIngredient={selectedIngredient}
+      />
 
-        {isLoading && <Loading />}
+      {isLoading && <Loading />}
 
-        {!isLoading && hasResults && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-slate-900">
-                Meals with {selectedIngredient}
-              </h2>
-              <span className="text-sm text-slate-600">
-                {foods.length} recipe{foods.length !== 1 ? "s" : ""} found
-              </span>
-            </div>
+      {!isLoading && hasResults && (
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-slate-900">
+              Meals with {selectedIngredient}
+            </h2>
+            <span className="text-sm text-slate-600">
+              {foods.length} recipe{foods.length !== 1 ? "s" : ""} found
+            </span>
+          </div>
 
-            <div className="grid grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-4">
-              {foods.map((food) => (
-                <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
-                  <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg h-64 group cursor-pointer">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center"
-                      style={{
-                        backgroundImage: `url(${food.strMealThumb})`,
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/50 transition-colors" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white font-semibold text-lg leading-tight">
-                        {food.strMeal}
-                      </h3>
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-4">
+            {foods.map((food) => (
+              <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
+                <div className="group relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg h-64 cursor-pointer">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url(${food.strMealThumb})`,
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 group-hover:bg-slate-950/70 transition-colors" />
+                  <div className="relative flex flex-col justify-end h-full p-4 md:p-6 text-white">
+                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 drop-shadow-sm">
+                      {food.strMeal}
+                    </h3>
+                    <p className="text-xs md:text-sm mb-3 md:mb-4 leading-relaxed line-clamp-2 drop-shadow-sm hidden md:block">
+                      A delicious recipe featuring{" "}
+                      {selectedIngredient || "fresh ingredients"}. Perfect for
+                      any occasion.
+                    </p>
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-xs text-white/80 drop-shadow-sm">
+                        {Math.floor(Math.random() * 45) + 15} min prep
+                      </span>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              </Link>
+            ))}
           </div>
-        )}
+        </div>
+      )}
 
-        {noResults && (
-          <SectionNoResult
-            selectedIngredient={selectedIngredient}
-            onClickClearFilter={() => {
-              const url = new URL(window.location.href);
-              url.searchParams.delete("ingredient");
-              window.history.pushState({}, "", url.toString());
-              setSelectedIngredient("");
-            }}
-          />
-        )}
+      {noResults && (
+        <SectionNoResult
+          selectedIngredient={selectedIngredient}
+          onClickClearFilter={() => {
+            const url = new URL(window.location.href);
+            url.searchParams.delete("ingredient");
+            window.history.pushState({}, "", url.toString());
+            setSelectedIngredient("");
+          }}
+        />
+      )}
 
-        {noSelection && <SectionNoSelectionIngredient />}
-      </div>
+      {noSelection && <SectionNoSelectionIngredient />}
     </div>
   );
 }
