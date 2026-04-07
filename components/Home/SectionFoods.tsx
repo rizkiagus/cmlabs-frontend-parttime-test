@@ -6,14 +6,6 @@ import { getMealsByIngredients } from "@/lib/api";
 import { TMealByIngredient } from "@/lib/type";
 import Link from "next/link";
 
-type TFoods = {
-  id: number;
-  name: string;
-  category: string;
-  ingredients: string[];
-  time: string;
-};
-
 export default function SectionFoods() {
   const [foods, setFoods] = useState<TMealByIngredient[]>();
   async function fetchFood() {
