@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function SectionHero() {
   return (
@@ -21,16 +22,16 @@ export default function SectionHero() {
             <Button
               className="bg-slate-900 text-white hover:bg-slate-800"
               size="lg"
-            >
-              Explore Menu
-            </Button>
+              render={<Link href="/foods">Explore Menu</Link>}
+              nativeButton={false}
+            />
             <Button
               variant="outline"
               className="border-slate-300 text-slate-900 hover:bg-slate-100"
               size="lg"
-            >
-              Browse Ingredients
-            </Button>
+              render={<Link href="/ingredients">Browse Ingredients</Link>}
+              nativeButton={false}
+            />
           </div>
         </div>
 

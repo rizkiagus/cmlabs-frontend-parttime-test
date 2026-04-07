@@ -115,13 +115,16 @@ export default function Ingredients() {
                   }}
                 >
                   <div className="absolute inset-0 bg-slate-950/60 group-hover:bg-slate-950/70 transition-colors" />
-                  <div className="relative flex flex-col justify-end h-full p-6 text-white">
-                    <h3 className="text-xl font-semibold mb-2 drop-shadow-sm">
+                  <div className="relative flex flex-col justify-end h-full p-4 md:p-6 text-white">
+                    <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2 drop-shadow-sm">
                       {ingredient.strIngredient}
                     </h3>
-                    <p className="text-sm mb-4 leading-relaxed line-clamp-2 drop-shadow-sm hidden md:block">
-                      {ingredient.strDescription ||
-                        "A versatile ingredient used in many delicious recipes."}
+                    <p className="text-xs md:text-sm mb-3 md:mb-4 leading-relaxed line-clamp-2 drop-shadow-sm hidden md:block">
+                      {ingredient.strDescription
+                        ? ingredient.strDescription.length > 100
+                          ? ingredient.strDescription.slice(0, 100) + "..."
+                          : ingredient.strDescription
+                        : "A versatile ingredient used in many delicious recipes."}
                     </p>
                     <div className="flex items-center justify-between w-full">
                       <span className="text-xs text-white/80 drop-shadow-sm">

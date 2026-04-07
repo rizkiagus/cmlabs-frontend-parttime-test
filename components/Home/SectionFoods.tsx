@@ -33,9 +33,9 @@ export default function SectionFoods() {
           variant="outline"
           size="sm"
           className="border-slate-300 text-slate-900 hover:bg-slate-100"
-        >
-          See recipes
-        </Button>
+          render={<Link href="/foods">See Recipes</Link>}
+          nativeButton={false}
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-6 lg:grid-cols-2 xl:grid-cols-4">
