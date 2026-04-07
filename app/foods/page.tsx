@@ -102,7 +102,7 @@ export default function FoodsPage() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
               {foods.map((food) => (
-                <Link href={`/meal/${food.idMeal}`} key={food.idMeal}>
+                <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
                   <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg h-64 group cursor-pointer">
                     <div
                       className="absolute inset-0 bg-cover bg-center"

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Loading from "@/components/ui/loading";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -23,7 +25,9 @@ export default function RootLayout({
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+        </main>
       </body>
     </html>
   );
