@@ -22,7 +22,9 @@ export default function SectionFoods() {
     <section className="space-y-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">Foods List</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+            Foods List
+          </h2>
           <p className="mt-2 text-sm text-slate-600">
             Browse popular meals and explore recipes with the best ingredients.
           </p>
@@ -36,7 +38,7 @@ export default function SectionFoods() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
         {foods?.slice(0, 8).map((food) => (
           <Link href={`/foods/${food.idMeal}`} key={food.idMeal}>
             <div

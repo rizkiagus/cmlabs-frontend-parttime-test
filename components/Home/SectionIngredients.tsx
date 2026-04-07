@@ -20,11 +20,11 @@ export default function SectionIngredients() {
   }, []);
 
   return (
-    <section className="mb-12 rounded-[2rem] border border-slate-200/80 bg-slate-50/80 p-8 shadow-sm ring-1 ring-slate-100">
-      <div className="flex flex-col gap-6 rounded-[2rem] bg-white p-6 shadow-sm ring-1 ring-slate-200/60 sm:p-8">
+    <section className="mb-12 rounded-[2rem] border border-slate-200/80 bg-slate-50/80 p-4 md:p-8 shadow-sm ring-1 ring-slate-100">
+      <div className="flex flex-col gap-6 rounded-[2rem] bg-white p-4 md:p-6 shadow-sm ring-1 ring-slate-200/60 lg:p-8">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
               Foods by Ingredients
             </h2>
             <p className="mt-2 text-sm text-slate-600">
@@ -43,7 +43,7 @@ export default function SectionIngredients() {
           </Button>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 lg:grid-cols-3">
           {ingredients?.slice(0, 6).map((data) => (
             <Button
               key={data.idIngredient}

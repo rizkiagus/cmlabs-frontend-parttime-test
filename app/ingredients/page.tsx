@@ -88,16 +88,16 @@ export default function Ingredients() {
   ];
 
   return (
-    <div className="w-full bg-white min-h-screen p-8">
+    <div className="w-full bg-white min-h-screen p-4 md:p-8">
       <BreadcrumbNav />
       {/* Hero Section */}
-      <section className="mb-12 overflow-hidden rounded-[2rem] bg-linear-to-br from-green-50 via-white to-emerald-50 p-8 shadow-[0_30px_80px_-50px_rgba(34,197,94,0.45)]">
+      <section className="mb-12 overflow-hidden rounded-[2rem] bg-linear-to-br from-green-50 via-white to-emerald-50 p-4 md:p-8 shadow-[0_30px_80px_-50px_rgba(34,197,94,0.45)]">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
           <div className="max-w-xl">
             <span className="inline-flex rounded-full bg-green-100 px-4 py-2 text-sm font-semibold text-green-800 shadow-sm">
               Fresh ingredients
             </span>
-            <h1 className="mt-6 text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl">
+            <h1 className="mt-6 text-3xl md:text-5xl font-bold tracking-tight text-slate-900 lg:text-6xl">
               Discover Fresh Ingredients
             </h1>
             <p className="mt-5 text-lg leading-8 text-slate-600">
@@ -106,7 +106,7 @@ export default function Ingredients() {
               elevate your meals.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center gap-4">
               <Button
                 className="bg-slate-900 text-white hover:bg-slate-800"
                 size="lg"
@@ -156,7 +156,7 @@ export default function Ingredients() {
       <section className="space-y-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-3xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
               All Ingredients
             </h2>
             <p className="mt-2 text-sm text-slate-600">
@@ -185,7 +185,7 @@ export default function Ingredients() {
         </div>
 
         {/* Ingredients Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {ingredients.map((ingredient) => (
             <div
               key={ingredient.id}

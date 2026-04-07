@@ -69,7 +69,7 @@ export default function FoodDetailPage() {
     <div className="container mx-auto px-4 py-8">
       <BreadcrumbNav />
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid gap-8 lg:grid-cols-2">
         <div>
           <Image
             src={meal.strMealThumb}
@@ -82,7 +82,9 @@ export default function FoodDetailPage() {
         </div>
 
         <div>
-          <h1 className="text-3xl font-bold mb-4">{meal.strMeal}</h1>
+          <h1 className="text-2xl md:text-3xl font-bold mb-4">
+            {meal.strMeal}
+          </h1>
           <div className="space-y-2 mb-6">
             <p>
               <strong>Category:</strong> {meal.strCategory}
@@ -97,7 +99,9 @@ export default function FoodDetailPage() {
             )}
           </div>
 
-          <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">
+            Ingredients
+          </h2>
           <ul className="list-disc list-inside space-y-1 mb-6">
             {ingredients.map((item, index) => (
               <li key={index}>
@@ -109,7 +113,7 @@ export default function FoodDetailPage() {
       </div>
 
       <div className="mt-8">
-        <h2 className="text-2xl font-semibold mb-4">Instructions</h2>
+        <h2 className="text-xl md:text-2xl font-semibold mb-4">Instructions</h2>
         <div className="prose max-w-none">
           {meal.strInstructions.split("\r\n").map((paragraph, index) => (
             <p key={index} className="mb-4">
@@ -120,7 +124,9 @@ export default function FoodDetailPage() {
 
         {meal.strYoutube && (
           <div className="mt-8 flex flex-col items-center">
-            <h3 className="text-xl font-semibold mb-4">Video Tutorial</h3>
+            <h3 className="text-lg md:text-xl font-semibold mb-4">
+              Video Tutorial
+            </h3>
             <div className="aspect-video w-full max-w-4xl">
               <iframe
                 src={`https://www.youtube.com/embed/${getYouTubeVideoId(meal.strYoutube)}`}
